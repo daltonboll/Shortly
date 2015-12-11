@@ -16,6 +16,7 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  favorites              :integer          default([]), is an Array
+#  name                   :string
 #
 
 class User < ActiveRecord::Base
