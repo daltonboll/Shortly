@@ -96,7 +96,7 @@ h1, h2, h3, h4, h5, h6 {
 	color: #A3AAAE;
 }
 
-#link_title {
+#link_title, #link_shortened {
 	height: 30px;
 	width: 300px;
 	font-size: 20.28px;
@@ -108,7 +108,7 @@ h1, h2, h3, h4, h5, h6 {
 	color: #A3AAAE;
 }
 
-#link_destination:focus, #link_title:focus {
+#link_destination:focus, #link_title:focus, #link_shortened:focus {
 	outline: 0;
     color: #ee6123;
     background-color: #fef7f4;
