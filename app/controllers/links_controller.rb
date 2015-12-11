@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :redirection]
 
   # GET /links
   # GET /links.json
@@ -100,6 +100,23 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       format.json { render json: json_response }
+    end
+  end
+
+  # Redirect a short url to its actual destination
+  def redirection
+    short = params["short"]
+
+    if short.nil?
+      redirect_to root_url
+    else
+      link = Link.find_by(shortened: short)
+
+      if link.nil?
+        redirect_to root_url
+      else
+        redirect_to link.destination
+      end
     end
   end
 
