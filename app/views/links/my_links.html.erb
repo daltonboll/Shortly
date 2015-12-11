@@ -1,7 +1,7 @@
-<h1>My Links</h1>
+<h1 class="title">My Links</h1>
 
 <% if current_user.links.empty? %>
-  <p>Looks like you don't have any links yet. Why not <%= link_to("create one?", root_url) %></p>
+  <p>Looks like you don't have any links yet. Why not <%= link_to("create one", root_url) %>?</p>
 <% else %>
   <table id="user-links-table">
     <thead>

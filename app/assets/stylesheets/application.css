@@ -30,7 +30,8 @@ a {
 
 #content {
 	padding-left: 30px;
-	width: 100%;
+	width: 90%;
+	margin: auto;
 }
 
 #logo {
@@ -139,5 +140,23 @@ h1, h2, h3, h4, h5, h6 {
 
 #shortener form {
 	display: inline-block;
+}
+
+table {
+	/*text-align: center;*/
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.title {
+	text-align: center;
+}
+
+tr {
+	padding: 20px;
+}
+
+td {
+	margin: 10px;
 }
 
