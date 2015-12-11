@@ -15,6 +15,7 @@
 class Link < ActiveRecord::Base
   require 'uri' # For checking if a URL is valid
   validates :destination, url: true
+  validates :shortened, uniqueness: true, allow_nil: true
 
   # Returns true if the provided url is valid
   def self.is_valid_url(url)
