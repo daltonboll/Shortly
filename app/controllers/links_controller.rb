@@ -28,6 +28,9 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save
+        @link.assign_unique_shortened_string
+        @link.save
+        
         format.html { redirect_to @link, notice: 'Link was successfully created.' }
         format.json { render :show, status: :created, location: @link }
       else
