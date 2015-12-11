@@ -100,4 +100,33 @@ class Link < ActiveRecord::Base
     return favorite_count
   end
 
+  # Returns the list of users who have favorited this link
+  def get_favorited_users
+    user_ids = self.favorited
+    if user_ids.empty?
+      return "None"
+    else
+      users = ""
+
+      user_ids.each do |user_id|
+        user = User.find_by(id: user_id)
+
+        if not user.nil?
+          users += user.id + ", "
+        end
+      end
+
+      if users.size > 0
+        users = users[0, users.size - 2]
+      end
+
+      return users
+    end
+  end
+
+  # Returns the user who owns this link
+  def get_user
+    return self.user.id
+  end
+
 end

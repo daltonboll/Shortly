@@ -1,18 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<h1 class="title">Viewing Link "<%= @link.get_title %>"</h1>
 <p>
   <strong>Destination:</strong>
-  <%= @link.destination %>
+  <%= link_to(@link.get_url, @link.get_url, target: "_blank") %>
 </p>
 
 <p>
-  <strong>Shortened:</strong>
-  <%= @link.shortened %>
-</p>
-
-<p>
-  <strong>Users Who Have Favorited This Link:</strong>
-  <%= @link.favorited %>
+  <strong>Shortly URL:</strong>
+  <%= link_to(@link.get_shorturl(root_url), @link.get_shorturl(root_url), target: "_blank") %>
 </p>
 
 <p>
@@ -21,9 +17,16 @@
 </p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @link.title %>
+  <strong>Users Who Have Favorited This Link (<%= @link.get_favorite_count %>):</strong>
+  <%= @link.get_favorited_users %>
 </p>
 
-<%= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Back', links_path %>
+<% if not @link.user.id == current_user.id %>
+  <p>
+    This link was created by <%= @link.get_user %>.
+  </p>
+<% else %>
+  <p>
+    <%= link_to 'Edit this link', edit_link_path(@link) %>
+  </p>
+<% end %>
