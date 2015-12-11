@@ -160,3 +160,11 @@ td {
 	margin: 10px;
 }
 
+.orange {
+	color: #EE6123;
+}
+
+#logo .orange a {
+	color: #EE6123;
+}
+
