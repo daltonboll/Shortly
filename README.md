@@ -13,7 +13,7 @@ To run Shortly locally:
 ```
 Have Ruby on Rails version 4.2.4+ installed.
 Run the command 'rails s' in the project directory.
-Navigate to `http://localhost:3000/`
+Navigate to http://localhost:3000/
 ```
 
 
