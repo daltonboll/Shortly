@@ -13,4 +13,15 @@
 #
 
 class Link < ActiveRecord::Base
+  require 'uri' # For checking if a URL is valid
+  validates :destination, url: true
+
+  # Returns true if the provided url is valid
+  def self.is_valid_url(url)
+    uri = URI.parse(url)
+    uri.kind_of?(URI::HTTP)
+    rescue URI::InvalidURIError
+      false
+  end
+
 end

@@ -61,6 +61,38 @@ class LinksController < ApplicationController
     end
   end
 
+  # Checks to see if the link data already exists in the database
+  # GET /api/links/exists
+  # Testing via curl: curl -H "Content-Type: application/json" -X GET -d '{ "destination": "https://www.google.com" }' http://localhost:3000/api/links/exists
+  def link_exists
+    status = -1
+    errors = []
+    destination = params["destination"]
+    json_response = {}
+
+    if destination.nil?
+      errors << "Error: you must provide a destination"
+    else
+      links = Link.where(destination: destination)
+      if links.empty? or links.nil?
+        status = 1
+      else
+        errors << "Error: that link already exists in the database"
+      end
+    end
+
+    if status == -1
+      json_response["errors"] = errors
+    end
+
+    json_response["status"] = status
+    json_response = json_response.to_json
+
+    respond_to do |format|
+      format.json { render json: json_response }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link
