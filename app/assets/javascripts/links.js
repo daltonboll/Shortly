@@ -26,3 +26,14 @@ function favorite(linkID, userID) {
         alert( "Data Saved: " + msg );
       });
 };
+
+function unfavorite(linkID, userID) {
+    $.ajax({
+      method: "PUT",
+      url: "/api/links/" + linkID + "/unfavorite",
+      data: { user_id: userID }
+    })
+      .done(function( msg ) {
+        alert( "Data Saved: " + msg );
+      });
+};

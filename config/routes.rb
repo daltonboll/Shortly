@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get "/api/links/exists", to: "links#link_exists", defaults: { format: 'json' }
   put "/api/links/:id/favorite", to: "links#favorite", defaults: { format: 'json' }
+  put "/api/links/:id/unfavorite", to: "links#unfavorite", defaults: { format: 'json' }
   get "/my_links", to: "links#my_links"
   get "/*short", to: "links#redirection"
   

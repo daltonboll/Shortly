@@ -145,4 +145,17 @@ class Link < ActiveRecord::Base
     end
   end
 
+  # Remove this link from the specified user's favorites
+  def unfavorite(user_id)
+    user = User.find_by(id: user_id)
+
+    if not user.nil? and user.favorites.include? self.id
+      user.favorites.delete(self.id)
+      user.save
+      puts "Removed link# #{self.id} from user# #{user_id}'s favorites"
+    else
+      puts "Couldn't remove link# #{self.id} to user# #{user_id}'s favorites"
+    end
+  end
+
 end

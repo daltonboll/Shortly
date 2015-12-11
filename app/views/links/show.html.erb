@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="title">Viewing Link "<%= @link.get_title %>"</h1>
+<h1 class="title">Viewing Link "<%= @link.get_title %>"
+  <% if current_user.has_favorited(@link.id)%>
+    (Favorited)
+  <% end %>
+</h1>
+
 <p>
   <strong>Destination:</strong>
   <%= link_to(@link.get_url, @link.get_url, target: "_blank") %>
@@ -26,7 +31,11 @@
     This link was created by <%= @link.get_user %>.
   </p>
 
-  <button type="button" onclick="favorite(<%= @link.id %>, <%= current_user.id %>)">Favorite This Link!</button>
+  <% if current_user.has_favorited(@link.id) %>
+    <button type="button" onclick="unfavorite(<%= @link.id %>, <%= current_user.id %>)">Remove This Link From Your Favorites</button>
+  <% else %>
+    <button type="button" onclick="favorite(<%= @link.id %>, <%= current_user.id %>)">Favorite This Link!</button>
+  <% end %>
 <% else %>
   <p>
     <%= link_to 'Edit this link', edit_link_path(@link) %>
