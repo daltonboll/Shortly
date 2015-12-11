@@ -17,6 +17,7 @@ class Link < ActiveRecord::Base
   validates :destination, url: true
   validates :shortened, uniqueness: true, allow_nil: true
   validates :shortened, length: { minimum: 4, maximum: 12 }, allow_blank: true
+  belongs_to :user
 
   # Returns true if the provided url is valid
   def self.is_valid_url(url)
