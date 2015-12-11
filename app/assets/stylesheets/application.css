@@ -30,6 +30,7 @@ a {
 
 #content {
 	padding-left: 30px;
+	width: 100%;
 }
 
 #logo {
@@ -80,3 +81,63 @@ header {
 h1, h2, h3, h4, h5, h6 {
 	color: #EE6123;
 }
+
+#link_destination {
+	height: 60px;
+	width: 500px;
+	font-size: 20.28px;
+	border-radius: 3px 0px 0px 3px;
+	border-width: 0px;
+	box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
+	-webkit-appearance: none;
+	padding-left: 15px;
+	color: #A3AAAE;
+}
+
+#link_destination:focus {
+	outline: 0;
+    color: #ee6123;
+    background-color: #fef7f4;
+    box-shadow: 0 0 0 1px rgba(238,97,35,.75),0 0 4px 2px rgba(238,97,35,.2),inset 0 1px 2px 0 rgba(238,97,35,.2);
+}
+
+#shorten_button {
+	border-radius: 0px 3px 3px 0px;
+	color: white;
+	background-color: #EE6123;
+	padding-top: 20.4px;
+	padding-bottom: 20.4px;
+	padding-left: 28.8px;
+	padding-right: 28.8px;
+	font-size: 20px;
+	line-height: 21px;
+	display: inline-block;
+	box-shadow: 0 0 0 1px #ee6123;
+	border: 0;
+	-webkit-appearance: none;
+	outline: 0;
+}
+
+#shorten_button:hover {
+	background-color: #f7733b;
+	cursor: pointer;
+	cursor: hand;
+}
+
+#destination_box, #shorten_submit {
+	float: left;
+}
+
+.center {
+	margin: auto;
+}
+
+#shortener {
+	text-align: center;
+	margin-top: 100px;
+}
+
+#shortener form {
+	display: inline-block;
+}
+

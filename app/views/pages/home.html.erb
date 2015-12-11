@@ -1,1 +1,12 @@
-<h1>Shortly</h1>
+<div id="shortener" class="center">
+  <h1>Link Shortener</h1>
+  <%= form_for(Link.new) do |f| %>
+    <div id="destination_box">
+      <%= f.text_field :destination, placeholder: "Enter your link here!" %><br />
+    </div>
+    <div id="shorten_submit">
+      <%= f.submit("Shorten!", id: "shorten_button") %>
+    <div>
+  <% end %>
+</div>
+
