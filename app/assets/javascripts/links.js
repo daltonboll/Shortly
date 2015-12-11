@@ -8,3 +8,21 @@ $(document).ready( function () {
     	paging: false
     } );
 } );
+
+$(document).ready( function () {
+    $('#favorite-links-table').DataTable( {
+    	scrollY: 400,
+    	paging: false
+    } );
+} );
+
+function favorite(linkID, userID) {
+    $.ajax({
+      method: "PUT",
+      url: "/api/links/" + linkID + "/favorite",
+      data: { user_id: userID }
+    })
+      .done(function( msg ) {
+        alert( "Data Saved: " + msg );
+      });
+};

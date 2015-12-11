@@ -33,7 +33,7 @@
 <% if current_user.favorites.empty? %>
   <p>You currently have no favorite links.</p>
 <% else %>
-  <table id="user-links-table">
+  <table id="favorite-links-table">
     <thead>
       <tr>
         <th>Title</th>
@@ -45,7 +45,7 @@
     </thead>
 
     <tbody>
-      <% current_user.links.each do |link| %>
+      <% current_user.favorite_links.each do |link| %>
         <tr class="clickable-row" data-href="<%= link_url(link) %>">
           <td><%= link.get_title %></td>
           <td><%= link.get_description %></td>

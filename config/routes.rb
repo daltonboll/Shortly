@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root "pages#home"
 
   get "/api/links/exists", to: "links#link_exists", defaults: { format: 'json' }
+  put "/api/links/:id/favorite", to: "links#favorite", defaults: { format: 'json' }
   get "/my_links", to: "links#my_links"
   get "/*short", to: "links#redirection"
   

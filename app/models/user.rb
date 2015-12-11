@@ -25,4 +25,32 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :links
   
+  # Get this user's favorite links
+  def favorite_links
+    favorite_ids = self.favorites
+    original_length = favorite_ids.size
+    favorite_links = []
+
+    favorite_ids.each do |id|
+      link = Link.find_by(id: id)
+
+      if link.nil?
+        favorite_ids.delete(id)
+      else
+        favorite_links << link
+      end
+    end
+
+    if favorite_ids.size != original_length
+      self.save
+    end
+
+    return favorite_links
+  end
+
+  # Returns true if this user has favorited the specified link
+  def has_favorited(link_id)
+    return self.favorites.include? link_id
+  end
+
 end

@@ -21,10 +21,12 @@
   <%= @link.get_favorited_users %>
 </p>
 
-<% if not @link.user.id == current_user.id %>
+<% if not @link.belongs_to_user(current_user.id) %>
   <p>
     This link was created by <%= @link.get_user %>.
   </p>
+
+  <button type="button" onclick="favorite(<%= @link.id %>, <%= current_user.id %>)">Favorite This Link!</button>
 <% else %>
   <p>
     <%= link_to 'Edit this link', edit_link_path(@link) %>

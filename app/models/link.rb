@@ -129,4 +129,20 @@ class Link < ActiveRecord::Base
     return self.user.id
   end
 
+  # Returns true if this link belongs to the specified user
+  def belongs_to_user(user_id)
+    return self.user.id == user_id
+  end
+
+  # Add this link to the specified user's favorites
+  def favorite(user_id)
+    user = User.find_by(id: user_id)
+
+    if not user.nil? and not user.favorites.include? self.id
+      user.favorites << self.id
+      user.save
+      puts "Added link# #{self.id} to user# #{user_id}'s favorites"
+    end
+  end
+
 end

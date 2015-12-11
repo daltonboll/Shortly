@@ -103,6 +103,46 @@ class LinksController < ApplicationController
     end
   end
 
+  # Checks to see if the link data already exists in the database
+  # PUT /api/links/:id/favorite
+  # Testing via curl: curl -H "Content-Type: application/json" -X PUT -d '{ "user_id": 1, "link_id": 21 }' http://localhost:3000/api/links/21/favorite
+  def favorite
+    status = -1
+    errors = []
+    user_id = params["user_id"]
+    link_id = params[:id]
+    json_response = {}
+
+    if user_id.nil?
+      errors << "Error: you must provide a user_id"
+    elsif link_id.nil?
+      errors << "Error: you must provide a link_id"
+    else
+      link = Link.find_by(id: link_id)
+      user = User.find_by(id: user_id)
+
+      if link.nil?
+        errors << "Error: no link with id #{link_id} exists"
+      elsif user.nil?
+        errors << "Error: no user with id #{user_id} exists"
+      else
+        link.favorite(user_id)
+        status = 1
+      end
+    end
+
+    if status == -1
+      json_response["errors"] = errors
+    end
+
+    json_response["status"] = status
+    json_response = json_response.to_json
+
+    respond_to do |format|
+      format.json { render json: json_response }
+    end
+  end
+
   # Redirect a short url to its actual destination
   def redirection
     short = params["short"]
