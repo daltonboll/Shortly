@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1 class="title">Viewing Link "<%= @link.get_title %>"
+  <span id="favorited">
   <% if current_user.has_favorited(@link.id)%>
     (Favorited)
   <% end %>
+  </span>
 </h1>
 
 <p>
@@ -32,9 +34,9 @@
   </p>
 
   <% if current_user.has_favorited(@link.id) %>
-    <button type="button" onclick="unfavorite(<%= @link.id %>, <%= current_user.id %>)">Remove This Link From Your Favorites</button>
+    <button class="favorite_button" type="button" onclick="unfavorite(<%= @link.id %>, <%= current_user.id %>)">Remove This Link From Your Favorites</button>
   <% else %>
-    <button type="button" onclick="favorite(<%= @link.id %>, <%= current_user.id %>)">Favorite This Link!</button>
+    <button class="favorite_button" type="button" onclick="favorite(<%= @link.id %>, <%= current_user.id %>)">Favorite This Link!</button>
   <% end %>
 <% else %>
   <p>

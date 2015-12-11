@@ -23,7 +23,16 @@ function favorite(linkID, userID) {
       data: { user_id: userID }
     })
       .done(function( msg ) {
-        alert( "Data Saved: " + msg );
+      	status = msg["status"];
+
+      	if(status == 1) {
+      		$("#favorited").html("(Favorited)");
+      		var current_onclick = $(".favorite_button").attr("onclick");
+      		var new_onclick = "un" + current_onclick;
+      		$(".favorite_button").attr("onclick", new_onclick);
+      		$(".favorite_button").html("Remove This Link From Your Favorites");
+      	}
+
       });
 };
 
@@ -34,6 +43,15 @@ function unfavorite(linkID, userID) {
       data: { user_id: userID }
     })
       .done(function( msg ) {
-        alert( "Data Saved: " + msg );
+      	status = msg["status"];
+
+      	if(status == 1) {
+      		$("#favorited").html("");
+      		var current_onclick = $(".favorite_button").attr("onclick");
+      		var new_onclick = current_onclick.slice(2);
+      		$(".favorite_button").attr("onclick", new_onclick);
+      		$(".favorite_button").html("Favorite This Link!");
+      	}
+
       });
 };
