@@ -7,7 +7,6 @@
     <thead>
       <tr>
         <th>Title</th>
-        <th>Description</th>
         <th>URL</th>
         <th>Shortlink</th>
         <th>Favorites</th>
@@ -18,7 +17,6 @@
       <% current_user.links.each do |link| %>
         <tr class="clickable-row" data-href="<%= link_url(link) %>">
           <td><%= link.get_title %></td>
-          <td><%= link.get_description %></td>
           <td><%= link_to(link.get_url, link.get_url, target: "_blank") %></td>
           <td><%= link_to(link.get_shorturl(root_url), link.get_shorturl(root_url), target: "_blank") %></td>
           <td><%= link.get_favorite_count %></td>
@@ -37,7 +35,6 @@
     <thead>
       <tr>
         <th>Title</th>
-        <th>Description</th>
         <th>URL</th>
         <th>Shortlink</th>
         <th>User</th>
@@ -48,7 +45,6 @@
       <% current_user.favorite_links.each do |link| %>
         <tr class="clickable-row" data-href="<%= link_url(link) %>">
           <td><%= link.get_title %></td>
-          <td><%= link.get_description %></td>
           <td><%= link_to(link.get_url, link.get_url, target: "_blank") %></td>
           <td><%= link_to(link.get_shorturl(root_url), link.get_shorturl(root_url), target: "_blank") %></td>
           <td><%= link.user.name %></td>

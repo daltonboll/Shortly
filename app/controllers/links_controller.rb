@@ -33,8 +33,10 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save
-        @link.assign_unique_shortened_string
-        @link.save
+        if @link.shortened.nil? or @link.shortened.empty?
+          @link.assign_unique_shortened_string
+          @link.save
+        end
         current_user.links << @link
         current_user.save
 

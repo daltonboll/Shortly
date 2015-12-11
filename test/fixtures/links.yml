@@ -6,7 +6,6 @@
 #  destination :string
 #  shortened   :string
 #  favorited   :integer          default([]), is an Array
-#  description :string
 #  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

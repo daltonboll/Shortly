@@ -6,7 +6,6 @@
 #  destination :string
 #  shortened   :string
 #  favorited   :integer          default([]), is an Array
-#  description :string
 #  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -18,6 +17,7 @@ class Link < ActiveRecord::Base
   validates :destination, url: true
   validates :shortened, uniqueness: true, allow_nil: true
   validates :shortened, length: { minimum: 4, maximum: 12 }, allow_blank: true
+  validates :title, presence: true
   belongs_to :user
 
   # Returns true if the provided url is valid

@@ -96,7 +96,19 @@ h1, h2, h3, h4, h5, h6 {
 	color: #A3AAAE;
 }
 
-#link_destination:focus {
+#link_title {
+	height: 30px;
+	width: 300px;
+	font-size: 20.28px;
+	border-radius: 3px 0px 0px 3px;
+	border-width: 0px;
+	box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
+	-webkit-appearance: none;
+	padding-left: 15px;
+	color: #A3AAAE;
+}
+
+#link_destination:focus, #link_title:focus {
 	outline: 0;
     color: #ee6123;
     background-color: #fef7f4;

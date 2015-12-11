@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="title">Viewing Link "<%= @link.get_title %>"
+<h1 class="title">Viewing Link: "<%= @link.get_title %>"
   <span id="favorited">
   <% if current_user.has_favorited(@link.id)%>
     (Favorited)
@@ -16,11 +16,6 @@
 <p>
   <strong>Shortly URL:</strong>
   <%= link_to(@link.get_shorturl(root_url), @link.get_shorturl(root_url), target: "_blank") %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @link.description %>
 </p>
 
 <% if not @link.belongs_to_user(current_user.id) %>
