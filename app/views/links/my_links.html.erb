@@ -27,3 +27,33 @@
     </tbody>
   </table>
 <% end %>
+
+<h1 class="title">My Favorite Links</h1>
+
+<% if current_user.links.empty? %>
+  <p>Looks like you don't have any links yet. Why not <%= link_to("create one", root_url) %>?</p>
+<% else %>
+  <table id="user-links-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>URL</th>
+        <th>Shortlink</th>
+        <th>Favorites</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% current_user.links.each do |link| %>
+        <tr class="clickable-row" data-href="<%= link_url(link) %>">
+          <td><%= link.get_title %></td>
+          <td><%= link.get_description %></td>
+          <td><%= link_to(link.get_url, link.get_url, target: "_blank") %></td>
+          <td><%= link_to(link.get_shorturl(root_url), link.get_shorturl(root_url), target: "_blank") %></td>
+          <td><%= link.get_favorite_count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

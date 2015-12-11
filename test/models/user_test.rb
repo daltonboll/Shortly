@@ -15,6 +15,7 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime
 #  updated_at             :datetime
+#  favorites              :integer          default([]), is an Array
 #
 
 require 'test_helper'

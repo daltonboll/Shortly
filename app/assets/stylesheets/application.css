@@ -168,3 +168,8 @@ td {
 	color: #EE6123;
 }
 
+.clickable-row:hover td {
+	background-color: #dbecfc;
+}
+
+
