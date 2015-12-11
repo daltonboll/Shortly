@@ -23,11 +23,6 @@
   <%= @link.description %>
 </p>
 
-<p>
-  <strong>Users Who Have Favorited This Link (<%= @link.get_favorite_count %>):</strong>
-  <%= @link.get_favorited_users %>
-</p>
-
 <% if not @link.belongs_to_user(current_user.id) %>
   <p>
     This link was created by <%= @link.get_user %>.

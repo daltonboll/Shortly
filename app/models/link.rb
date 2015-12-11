@@ -112,7 +112,7 @@ class Link < ActiveRecord::Base
         user = User.find_by(id: user_id)
 
         if not user.nil?
-          users += user.id + ", "
+          users += user.name + ", "
         end
       end
 
@@ -141,6 +141,8 @@ class Link < ActiveRecord::Base
     if not user.nil? and not user.favorites.include? self.id
       user.favorites << self.id
       user.save
+      self.favorited << user.id
+      self.save
       puts "Added link# #{self.id} to user# #{user_id}'s favorites"
     end
   end
@@ -152,6 +154,8 @@ class Link < ActiveRecord::Base
     if not user.nil? and user.favorites.include? self.id
       user.favorites.delete(self.id)
       user.save
+      self.favorited.delete(user.id)
+      self.save
       puts "Removed link# #{self.id} from user# #{user_id}'s favorites"
     else
       puts "Couldn't remove link# #{self.id} to user# #{user_id}'s favorites"
