@@ -1,5 +1,6 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /links
   # GET /links.json
@@ -21,6 +22,10 @@ class LinksController < ApplicationController
   def edit
   end
 
+  # show my links page
+  def my_links
+  end
+
   # POST /links
   # POST /links.json
   def create
@@ -30,7 +35,9 @@ class LinksController < ApplicationController
       if @link.save
         @link.assign_unique_shortened_string
         @link.save
-        
+        current_user.links << @link
+        current_user.save
+
         format.html { redirect_to @link, notice: 'Link was successfully created.' }
         format.json { render :show, status: :created, location: @link }
       else

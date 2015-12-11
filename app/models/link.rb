@@ -56,4 +56,47 @@ class Link < ActiveRecord::Base
     end
   end
 
+  # Returns the title of this link
+  def get_title
+    title = self.title
+
+    if title.nil?
+      return ""
+    else
+      return title
+    end
+  end
+
+  # Returns the description of this link
+  def get_description
+    description = self.description
+
+    if description.nil?
+      return ""
+    else
+      return description
+    end
+  end
+
+  # Returns the short url of this link
+  def get_shorturl(root_path)
+    path = self.shortened
+    base = root_path
+    shorturl = base + path
+    return shorturl
+  end
+
+  # Returns the full url of this link
+  def get_url
+    url = self.destination
+    return url
+  end
+
+  # Returns the number of times this url has been favorited
+  def get_favorite_count
+    favorites = self.favorited
+    favorite_count = favorites.size
+    return favorite_count
+  end
+
 end

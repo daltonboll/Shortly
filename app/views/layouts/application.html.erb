@@ -18,7 +18,7 @@
         <li><%= link_to("Home", root_url) %></li>
         <% if user_signed_in? %>
           <li><%= link_to("Account", edit_user_registration_path(self)) %></li>
-          <li>My Links</li>
+          <li><%= link_to("My Links", my_links_path) %></li>
           <li><%= link_to("Sign out", destroy_user_session_path, method: :delete) %></li>
         <% else %>
           <li><%= link_to("Sign in", new_user_session_path) %></li>

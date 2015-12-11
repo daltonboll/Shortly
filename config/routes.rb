@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root "pages#home"
 
   get "/api/links/exists", to: "links#link_exists", defaults: { format: 'json' }
+  get "my_links", to: "links#my_links"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
