@@ -22,7 +22,7 @@
         <td><%= link_to(link.get_url, link.get_url, target: "_blank") %></td>
         <td><%= link_to(link.get_shorturl(root_url), link.get_shorturl(root_url), target: "_blank") %></td>
         <td><%= link.get_favorite_count %></td>
-        <td><%= link.user.id %></td>
+        <td><%= link.get_user %></td>
       </tr>
     <% end %>
   </tbody>

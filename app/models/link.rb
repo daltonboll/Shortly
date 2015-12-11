@@ -126,7 +126,7 @@ class Link < ActiveRecord::Base
 
   # Returns the user who owns this link
   def get_user
-    return self.user.id
+    return self.user.name
   end
 
   # Returns true if this link belongs to the specified user

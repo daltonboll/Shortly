@@ -1,5 +1,5 @@
 <div id="shortener" class="center">
-  <h1>Link Shortener</h1>
+  <h1>Hi, <%= current_user.name %>! Here you can shorten a link:</h1>
   <%= form_for(Link.new) do |f| %>
     <div id="destination_box">
       <%= f.text_field :destination, placeholder: "Enter your link here!" %><br />
