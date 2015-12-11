@@ -18,6 +18,7 @@
     <nav>
       <ul>
         <li><%= link_to("Home", root_url) %></li>
+        <li><%= link_to("All Links", links_url) %></li>
         <% if user_signed_in? %>
           <li><%= link_to("Account", edit_user_registration_path(self)) %></li>
           <li><%= link_to("My Links", my_links_path) %></li>

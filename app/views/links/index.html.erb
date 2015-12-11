@@ -1,35 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Links</h1>
+<h1 class="title">All Links</h1>
 
-<table>
+<table id="user-links-table">
   <thead>
     <tr>
-      <th>Destination</th>
-      <th>Shortened</th>
-      <th>Favorited</th>
-      <th>Description</th>
       <th>Title</th>
-      <th colspan="3"></th>
+      <th>Description</th>
+      <th>URL</th>
+      <th>Shortlink</th>
+      <th>Favorites</th>
+      <th>User</th>
     </tr>
   </thead>
 
   <tbody>
     <% @links.each do |link| %>
-      <tr>
-        <td><%= link.destination %></td>
-        <td><%= link.shortened %></td>
-        <td><%= link.favorited %></td>
-        <td><%= link.description %></td>
-        <td><%= link.title %></td>
-        <td><%= link_to 'Show', link %></td>
-        <td><%= link_to 'Edit', edit_link_path(link) %></td>
-        <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tr class="clickable-row" data-href="<%= link_url(link) %>">
+        <td><%= link.get_title %></td>
+        <td><%= link.get_description %></td>
+        <td><%= link_to(link.get_url, link.get_url, target: "_blank") %></td>
+        <td><%= link_to(link.get_shorturl(root_url), link.get_shorturl(root_url), target: "_blank") %></td>
+        <td><%= link.get_favorite_count %></td>
+        <td><%= link.user.id %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Link', new_link_path %>
