@@ -3,4 +3,5 @@
 <%= render 'form' %>
 
 <%= link_to 'Back', @link %> |
-<%= link_to 'All Links', links_path %>
+<%= link_to 'All Links', links_path %> |
+<%= link_to 'Delete', link_path(@link), data: { confirm: 'Are you sure?' }, method: :delete %>
