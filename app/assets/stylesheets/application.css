@@ -133,6 +133,29 @@ h1, h2, h3, h4, h5, h6 {
 	outline: 0;
 }
 
+.pretty_button {
+	border-radius: 3px 3px 3px 3px;
+	color: white;
+	background-color: #EE6123;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	padding-left: 22px;
+	padding-right: 22px;
+	font-size: 20px;
+	line-height: 21px;
+	display: inline-block;
+	box-shadow: 0 0 0 1px #ee6123;
+	border: 0;
+	-webkit-appearance: none;
+	outline: 0;
+}
+
+.pretty_button:hover {
+	background-color: #f7733b;
+	cursor: pointer;
+	cursor: hand;
+}
+
 #shorten_button:hover {
 	background-color: #f7733b;
 	cursor: pointer;

@@ -34,6 +34,7 @@ a {
 	width: 90%;
 	margin: auto;
 	margin-bottom: 100px;
+	text-align: center;
 }
 
 #logo {
@@ -97,7 +98,7 @@ h1, h2, h3, h4, h5, h6 {
 	color: #A3AAAE;
 }
 
-#link_title, #link_shortened {
+#link_title, #link_shortened, .styled_input {
 	height: 30px;
 	width: 300px;
 	font-size: 20.28px;
@@ -109,7 +110,7 @@ h1, h2, h3, h4, h5, h6 {
 	color: #A3AAAE;
 }
 
-#link_destination:focus, #link_title:focus, #link_shortened:focus {
+#link_destination:focus, #link_title:focus, #link_shortened:focus, .styled_input:focus {
 	outline: 0;
     color: #ee6123;
     background-color: #fef7f4;
@@ -131,6 +132,29 @@ h1, h2, h3, h4, h5, h6 {
 	border: 0;
 	-webkit-appearance: none;
 	outline: 0;
+}
+
+.pretty_button {
+	border-radius: 3px 3px 3px 3px;
+	color: white;
+	background-color: #EE6123;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	padding-left: 22px;
+	padding-right: 22px;
+	font-size: 20px;
+	line-height: 21px;
+	display: inline-block;
+	box-shadow: 0 0 0 1px #ee6123;
+	border: 0;
+	-webkit-appearance: none;
+	outline: 0;
+}
+
+.pretty_button:hover {
+	background-color: #f7733b;
+	cursor: pointer;
+	cursor: hand;
 }
 
 #shorten_button:hover {
@@ -188,6 +212,7 @@ td {
 
 input {
 	margin-bottom: 12px;
+	magin-top: 12px;
 }
 
 
