@@ -5,7 +5,7 @@ Team #10 - Dalton Boll
 
 About
 -----
-Shortly is a social link shortner. Shorten, store, and favorite your friends links for future use! Shortly is built using Ruby on Rails version 4.2.4.
+Shortly is a social link shortener. Shorten, store, and favorite your friends' links for future use! Shortly is built using Ruby on Rails version 4.2.4.
 
 To use Shortly online, go here: https://shortly-i253.herokuapp.com/
 
